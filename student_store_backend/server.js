@@ -16,6 +16,10 @@ app.use(express.json())
 // log requests info
 app.use(morgan("tiny"))
 
+app.get("/", (req, res, next) => {
+  res.status(200).json({ ping: "gnop" });
+});
+
 app.use("/auth", authRoutes)
 
 /** Handle 404 errors -- this matches everything */
